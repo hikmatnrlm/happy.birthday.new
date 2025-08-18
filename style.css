@@ -262,3 +262,89 @@ p {
   background-color: #e60073;
   transform: scale(1.05);
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, pink, white);
+  text-align: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Lampu gantung container */
+.lights {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 120px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Tali lampu */
+.lamp {
+  position: absolute;
+  top: 0;
+  width: 8px;
+  height: 90px;
+  background: #444;
+  border-radius: 4px;
+  animation: swing 3s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+/* Bohlam */
+.lamp::after {
+  content: "";
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 28px;
+  background: yellow;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255,255,0,0.8);
+  animation: glow 1.5s infinite alternate;
+}
+
+/* Animasi ayunan tali */
+@keyframes swing {
+  0% { transform: rotate(5deg); }
+  50% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
+}
+
+/* Animasi lampu nyala */
+@keyframes glow {
+  0% {
+    background: rgba(255,255,100,0.6);
+    box-shadow: 0 0 5px rgba(255,255,100,0.4);
+  }
+  100% {
+    background: rgba(255,255,0,1);
+    box-shadow: 0 0 25px rgba(255,255,0,1), 0 0 50px rgba(255,255,150,0.8);
+  }
+}
+
+/* Konten */
+.content {
+  position: relative;
+  top: 150px;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 3em;
+  color: #b30059;
+  text-shadow: 0 0 10px #ff99cc, 0 0 20px #ff66cc;
+}
+
+p {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #660033;
+  }
